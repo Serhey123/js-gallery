@@ -13,10 +13,8 @@ html {
   }
   
   body {
-    background-color: $base-page-color;
-    font-family: $base-font-family;
+    font-family: sans-serif;
     font-size: 1.6rem;
-    color: $base-font-color;
     scroll-behavior: smooth;
   }
   
@@ -32,19 +30,6 @@ html {
   
   li {
     list-style: none;
-  }
-  
-  .container {
-    margin: 0 auto;
-    @media screen and (max-width: $mobile-bp-max) {
-      width: $mobile-w;
-    }
-    @media screen and (min-width: $tablet-bp-min) {
-      width: $tablet-w;
-    }
-    @media screen and (min-width: $desktop-bp-min) {
-      width: $desktop-w;
-    }
   }
   
   .visually-hidden:not(:focus):not(:active),
