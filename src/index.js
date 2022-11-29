@@ -9,6 +9,8 @@ import refs from './js/refs.js';
 import makeModal from './js/modal.js';
 import infiniteScroll from './js/infiniteScroll.js';
 
+galleryService.fetchGallery().then(galleryMarkup);
+
 refs.formRef.addEventListener('submit', event => {
   event.preventDefault();
   galleryService.query = event.currentTarget.elements.query.value;
@@ -44,10 +46,12 @@ refs.loadMoreBtn.scrollIntoView({
 });
 
 refs.listRef.addEventListener('click', event => {
-  if (event.target.nodeName !== 'IMG') {
+  const img = event.target.previousElementSibling;
+  console.dir(img);
+  if (!img || img.nodeName !== 'IMG') {
     return;
   }
-  makeModal(event.target);
+  makeModal(img);
 });
 
 // Бесконечная загрузка при скроле используя Intersection Observer

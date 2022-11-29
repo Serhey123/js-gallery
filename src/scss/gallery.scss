@@ -1,5 +1,19 @@
+@keyframes slide-right{
+    0%{
+        transform:translateX(-50%);
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.2;
+    }
+    100%{
+        transform:translateX(0);
+        opacity: 1;
+    }
+}
+
 .container{
-    width: 1200px;
+    width: 310px;
     margin: 0 auto;
 }
 
@@ -9,7 +23,6 @@
 
 .form-input{
     padding: 5px;
-    width: 500px;
 }
 
 .submit-btn{
@@ -21,18 +34,42 @@
     height: 35px;
 }
 
-.gallery{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.gallery-img{
+    animation: 2s ease slide-right;
+}
+
+.gallery-img-wrapper:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s, visibility 0.4s;
 }
 
 .gallery-item{
+    animation: 1s ease slide-right;
     margin-bottom: 20px;
+
 }
 
-.photo-card{
-    width: 260px;
+.gallery-img-wrapper{
+    position: relative;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(85, 85, 85, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    border: 10px solid rgba(255, 255, 255, 0.5);
+    background-clip: padding-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: opacity 0.5s, visibility 0.5s;
 }
 
 .stats{
@@ -40,8 +77,13 @@
 }
 
 .stats-item{
+    color: rgb(50, 151, 151);;
     display: flex;
     align-items: center;
+}
+
+.overlay-stats-item{
+    color: white;
 }
 
 .material-icons{
@@ -57,6 +99,7 @@
     height: 35px;
     display: block;
     margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 .is-hidden{
@@ -68,11 +111,44 @@
 
 }
 
-.modal-img{
-    max-width: 42vw;
-}
-
 .modal-text{
     font-size: 20px;
     padding: 10px;
+}
+
+@media(max-width: 760px){
+    .gallery-img{
+        width: 100%;
+    }
+}
+
+@media(min-width: 768px){
+    .container{
+        width: 740px;
+    }
+
+    .form-input{
+        width: 500px;
+    }
+
+    .gallery{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .photo-card{
+        width: 260px;
+    }
+    
+}
+
+@media(min-width: 1240px){
+    .container{
+        width: 1200px;
+    }
+    
+    .modal-img{
+        max-width: 42vw;
+    }
 }

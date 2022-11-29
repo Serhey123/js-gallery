@@ -8,7 +8,6 @@ function makeModal(img) {
 	<p class="modal-text">${img.alt}</p>
   </div>
     `);
-  console.dir(img);
   instance.show();
 }
 

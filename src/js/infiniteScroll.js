@@ -1,6 +1,5 @@
 import galleryService from './galleryService.js';
 import galleryMarkup from './galleryMarkup.js';
-import refs from './refs.js';
 
 function infiniteScroll(item) {
   const options = {
