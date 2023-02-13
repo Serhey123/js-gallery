@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Serhey123/js-homework13.git"
+    "url": "git+https://github.com/Serhey123/js-gallery.git"
   },
   "keywords": [],
   "author": "s.korzhuk <hojolkitybo@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Serhey123/js-homework13/issues"
+    "url": "https://github.com/Serhey123/js-gallery/issues"
   },
-  "homepage": "https://github.com/Serhey123/js-homework13",
+  "homepage": "https://github.com/Serhey123/js-gallery",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",

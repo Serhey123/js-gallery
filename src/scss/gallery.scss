@@ -1,13 +1,11 @@
-@keyframes slide-right{
+@keyframes fade{
     0%{
-        transform:translateX(-50%);
         opacity: 0;
     }
     50%{
         opacity: 0.2;
     }
     100%{
-        transform:translateX(0);
         opacity: 1;
     }
 }
@@ -27,12 +25,32 @@
     color: rgb(50, 151, 151);
 }
 
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 260px);
+    gap: 20px;
+    justify-content: center;
+}
+
 #search-form{
     padding: 20px 0 ;
 }
 
 .form-input{
-    padding: 5px;
+    background: #FFFFFF;
+    border: 1px solid #e0eaeb;
+    border-radius: 4px;
+    padding: 10px 8px;
+    transition: outline 0.1s ease;
+    &::placeholder{
+        font-size: 14px;
+        color: #A3AAC2;
+    }
+    &:focus{
+        outline: 2px solid rgb(50, 151, 151);
+
+        border-radius: 5px;
+    }
 }
 
 .submit-btn{
@@ -41,11 +59,21 @@
     background-color: rgb(50, 151, 151);
     color: rgb(255, 255, 255);
     width: 80px;
-    height: 35px;
+    height: 34px;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+    &:hover{
+        background-color: rgb(40, 191, 191);
+    }
+    &:active{
+        background-color: rgb(50, 151, 151);
+        font-size: 13px;
+    }
 }
 
 .gallery-img{
-    animation: 2s ease slide-right;
+    animation: 0.4s ease fade;
+    height: 175px;
+    object-fit: cover;
 }
 
 .gallery-img-wrapper:hover .overlay {
@@ -55,7 +83,7 @@
 }
 
 .gallery-item{
-    animation: 1s ease slide-right;
+    animation: 0.4s ease fade;
     margin-bottom: 20px;
 
 }
@@ -79,7 +107,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    transition: opacity 0.5s, visibility 0.5s;
+    transition: opacity 0.3s, visibility 0.3s;
     cursor: pointer;
 }
 
@@ -102,12 +130,7 @@
 }
 
 .loadmore-btn{
-    font-size: 14px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: rgb(50, 151, 151);
-    color: rgb(255, 255, 255);
     width: 100px;
-    height: 35px;
     display: block;
     margin: 0 auto;
     margin-bottom: 40px;
@@ -160,11 +183,7 @@
         width: 500px;
     }
 
-    .gallery{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-    }
+
 
     .photo-card{
         width: 260px;

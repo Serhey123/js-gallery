@@ -7,10 +7,29 @@ import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
 defaultModules.set(PNotifyMobile, {});
 
 import '@pnotify/core/dist/Material.css';
-import { defaults } from '@pnotify/core';
+import { defaults, Stack } from '@pnotify/core';
+
+const myStack = new Stack({
+  modal: false,
+  dir1: 'down',
+  dir2: 'left',
+  firstpos1: 25,
+  firstpos2: 25,
+  spacing1: 36,
+  spacing2: 36,
+  push: 'top',
+  maxStrategy: 'close',
+  maxClosureCausesWait: false,
+});
 
 defaults.styling = 'material';
 defaults.icons = 'material';
+defaults.delay = 1000;
+defaults.mouseReset = false;
+defaults.closerHover = false;
+defaults.sticker = false;
+defaults.stickerHover = false;
+defaults.stack = myStack;
 
 import { success, error } from '@pnotify/core';
 

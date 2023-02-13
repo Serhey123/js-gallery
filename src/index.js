@@ -7,13 +7,22 @@ import galleryMarkup from './js/galleryMarkup.js';
 import notifications from './js/notifications.js';
 import refs from './js/refs.js';
 import makeModal from './js/modal.js';
+import { error } from '@pnotify/core';
 import infiniteScroll from './js/infiniteScroll.js';
 
 galleryService.fetchGallery().then(galleryMarkup);
 
 refs.formRef.addEventListener('submit', event => {
   event.preventDefault();
+
+  if (event.currentTarget.elements.query.value === '') {
+    error({
+      text: 'Input is empty.',
+    });
+    return;
+  }
   galleryService.query = event.currentTarget.elements.query.value;
+  event.currentTarget.elements.query.value = '';
 
   refs.listRef.innerHTML = '';
   galleryService.resetPage();
@@ -47,13 +56,12 @@ refs.loadMoreBtn.scrollIntoView({
 
 refs.listRef.addEventListener('click', event => {
   const img = event.target.previousElementSibling;
-  console.dir(img);
   if (!img || img.nodeName !== 'IMG') {
     return;
   }
   makeModal(img);
 });
 
-// Бесконечная загрузка при скроле используя Intersection Observer
+// infinite scroll
 
 // infiniteScroll(refs.loadMoreBtn);
